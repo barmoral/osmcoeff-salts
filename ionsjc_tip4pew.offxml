@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SMIRNOFF version="0.3" aromaticity_model="OEAroModel_MDL">
+    <!-- Joung & Cheatham (2008) monovalent ion parameters for TIP4P-Ew water.
+         Values verified against AmberTools frcmod.ionsjc_tip4pew (via ionsjc_tip4pew.xml)
+         and against LB cross-terms in Hosseini & Ashbaugh (2023) Table 1.
+         vdW/Electrostatics handler headers copied from openff-2.3.0.offxml.
+         Intended use: load together with tip4p_ew.offxml. -->
+    <vdW version="0.4" potential="Lennard-Jones-12-6" combining_rules="Lorentz-Berthelot" scale12="0.0" scale13="0.0" scale14="0.5" scale15="1.0" cutoff="9.0 * angstrom ** 1" switch_width="1.0 * angstrom ** 1" periodic_method="cutoff" nonperiodic_method="no-cutoff">
+        <Atom smirks="[#3+1:1]" epsilon="0.1039884 * mole ** -1 * kilocalorie ** 1" id="n27" rmin_half="0.808 * angstrom ** 1"></Atom>
+        <Atom smirks="[#11+1:1]" epsilon="0.1684375 * mole ** -1 * kilocalorie ** 1" id="n28" rmin_half="1.226 * angstrom ** 1"></Atom>
+        <Atom smirks="[#19+1:1]" epsilon="0.2794651 * mole ** -1 * kilocalorie ** 1" id="n29" rmin_half="1.590 * angstrom ** 1"></Atom>
+        <Atom smirks="[#37+1:1]" epsilon="0.4331494 * mole ** -1 * kilocalorie ** 1" id="n30" rmin_half="1.709 * angstrom ** 1"></Atom>
+        <Atom smirks="[#55+1:1]" epsilon="0.3944318 * mole ** -1 * kilocalorie ** 1" id="n31" rmin_half="1.888 * angstrom ** 1"></Atom>
+        <Atom smirks="[#9X0-1:1]" epsilon="0.0015752 * mole ** -1 * kilocalorie ** 1" id="n32" rmin_half="2.538 * angstrom ** 1"></Atom>
+        <Atom smirks="[#17X0-1:1]" epsilon="0.0116615 * mole ** -1 * kilocalorie ** 1" id="n33" rmin_half="2.760 * angstrom ** 1"></Atom>
+        <Atom smirks="[#35X0-1:1]" epsilon="0.0303773 * mole ** -1 * kilocalorie ** 1" id="n34" rmin_half="2.768 * angstrom ** 1"></Atom>
+        <Atom smirks="[#53X0-1:1]" epsilon="0.0417082 * mole ** -1 * kilocalorie ** 1" id="n35" rmin_half="2.952 * angstrom ** 1"></Atom>
+    </vdW>
+    <LibraryCharges version="0.3">
+        <LibraryCharge smirks="[#3+1:1]" charge1="1.0 * elementary_charge ** 1" id="Li+"></LibraryCharge>
+        <LibraryCharge smirks="[#11+1:1]" charge1="1.0 * elementary_charge ** 1" id="Na+"></LibraryCharge>
+        <LibraryCharge smirks="[#19+1:1]" charge1="1.0 * elementary_charge ** 1" id="K+"></LibraryCharge>
+        <LibraryCharge smirks="[#37+1:1]" charge1="1.0 * elementary_charge ** 1" id="Rb+"></LibraryCharge>
+        <LibraryCharge smirks="[#55+1:1]" charge1="1.0 * elementary_charge ** 1" id="Cs+"></LibraryCharge>
+        <LibraryCharge smirks="[#9X0-1:1]" charge1="-1.0 * elementary_charge ** 1" id="F-"></LibraryCharge>
+        <LibraryCharge smirks="[#17X0-1:1]" charge1="-1.0 * elementary_charge ** 1" id="Cl-"></LibraryCharge>
+        <LibraryCharge smirks="[#35X0-1:1]" charge1="-1.0 * elementary_charge ** 1" id="Br-"></LibraryCharge>
+        <LibraryCharge smirks="[#53X0-1:1]" charge1="-1.0 * elementary_charge ** 1" id="I-"></LibraryCharge>
+    </LibraryCharges>
+    <Electrostatics version="0.4" scale12="0.0" scale13="0.0" scale14="0.8333333333" scale15="1.0" cutoff="9.0 * angstrom ** 1" switch_width="0.0 * angstrom ** 1" periodic_potential="Ewald3D-ConductingBoundary" nonperiodic_potential="Coulomb" exception_potential="Coulomb"></Electrostatics>
+</SMIRNOFF>
