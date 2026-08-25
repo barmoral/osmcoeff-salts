@@ -2,3 +2,4 @@
 *.dcd
 *.lock
 *.pyc
+failed_replicates.log
