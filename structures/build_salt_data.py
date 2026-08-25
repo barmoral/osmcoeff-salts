@@ -1,55 +1,79 @@
+
 #!/usr/bin/env python3
 """
 build_salt_data.py
 ==================
-Generate one salt_data_<tag>.py per simulation box, holding everything both the
-HP and the FBP pipelines need for that box.
-
-    python build_salt_data.py --legacy salt_data_LEGACY.py \
-        --box 4.8 4.8 14.4 --tag 48x48x144
-    python build_salt_data.py --legacy salt_data_LEGACY.py \
-        --box 4.8 4.8 28.8 --tag 48x48x288
-
-Design logic
-------------
-Target concentrations are MOLALITY (mol/kg water), whole-box basis - the same
-convention convert_profile_to_molal() uses in HP_analysis_replicates.py, so
-design targets and analysis output are directly comparable.
-
-Targeting molality (not molarity) makes the design immune to the membrane
-barostat squeezing XY:  m(0) = C(0)/f,  and both C(0) and the molal factor f
-scale as 1/A, so the cross-sectional area cancels exactly.
-
-For one box, ONE k_HP and ONE delta_z_FBP serve every target concentration;
-only the particle count changes.  That falls out of the maths:
-
-  k_HP      fixed by the box alone.  Require C(edge)/C(0) <= edge_tol:
-                K = -ln(edge_tol) / (Lz/2)^2 ,   k = 2RT*K
-            The default edge_tol = 1e-3 reproduces the values you already use
-            (Lz=14.4 -> k = 0.66, close to your historical 0.68; Lz=28.8 ->
-            k = 0.165, close to the 0.156 used for the double box).
-
-  N(m)      then follows from the target, and is linear in molality:
-                N = m * 2 * w * MOLAR_TO_NM3 * mass_water / (Lz * 1e-24)
-            where w = int_0^inf exp(-K z^2) dz = 0.5*sqrt(pi/K).
-
-  delta_z   for the SAME N and the same target, the flat-bottom half width is
-            exactly w.  So delta_z_FBP = w, independent of concentration.
-            HP spreads N ions over an effective half-width w as a Gaussian;
-            FBP spreads the same N over half-width w as a top hat.
-
-That is why one .pdb serves both methods: identical box, identical N, only the
-restraint parameters differ (k_HP + z0 for HP; k_FBP_wall + delta_z for FBP).
-
-FBP note: the plateau really is flat.  From the force balance dPi/dz =
--C dU/dz, U is flat inside the walls so Pi and therefore C are constant there -
-this holds for a real solution, not just the ideal limit.  With a stiff wall
-(k_FBP_wall = 4184) the decay length sqrt(RT/k) is 0.024 nm, so under 1% of the
-ions sit outside the walls and C_flat = N/(2*A*delta_z) is good to ~1%.
-
-HP note: the Gaussian result IS the ideal-solution limit.  Measured peaks run
-~10-15% below target (your CsBr run: measured/ideal = 0.86).  Correct by
-targeting m/0.86, or calibrate from a short run.
+Turns salt_reference.py (experimental data, box-independent) into one
+salt_data_<tag>.py per simulation box, holding everything the HP and FBP
+pipelines need. Can also emit the matching packmol inputs.
+ 
+    salt_reference.py  ->  build  ->  salt_data_<tag>.py
+                                          |
+                                       packmol  ->  *.inp  ->  structures/*.pdb
+ 
+Usage
+-----
+Build a box file:
+ 
+    python build_salt_data.py build --box 4.8 4.8 14.4 --tag 48x48x144
+ 
+Build + packmol inputs for one system (6 replicates):
+ 
+    python build_salt_data.py build   --box 4.8 4.8 14.4 --tag 48x48x144
+    python build_salt_data.py packmol --salt-data salt_data_48x48x144.py \
+        --salt NaCl --molality 3.5 --replicates 6
+    cd packmol_inputs && for f in build_*.inp; do packmol < $f; done
+    bash add_cryst1.sh && mv nacl_35m_r*.pdb ../structures/
+ 
+Longer box, its own restraint (normal build):
+ 
+    python build_salt_data.py build --box 4.8 4.8 28.8 --tag 48x48x288
+ 
+Longer box, IDENTICAL restraint and N (controlled box-length experiment only):
+ 
+    python build_salt_data.py build --box 4.8 4.8 28.8 \
+        --clone-from salt_data_48x48x144.py --tag 48x48x288_clone
+ 
+Thicker reservoirs / fewer ions (tighter edge tolerance):
+ 
+    python build_salt_data.py build --box 4.8 4.8 28.8 --edge-tol 1e-6 --tag dbox_tight
+ 
+Second replicate set with different seeds, own pdb_suffix:
+ 
+    python build_salt_data.py packmol --salt-data salt_data_48x48x288.py \
+        --salt NaCl --molality 3.5 --replicates 6 --suffix d --seed0 5000
+ 
+Design
+------
+Targets are MOLALITY (mol/kg water), whole-box basis - the same convention as
+convert_profile_to_molal() in the analysis, so design and results are directly
+comparable. Molality also makes the design immune to the barostat squeezing XY:
+m(0) = C(0)/f, and both scale as 1/A, so the area cancels.
+ 
+Per box, ONE k_HP and ONE delta_z_FBP serve every concentration; only the
+particle count changes:
+ 
+  k_HP     from the box alone. Require C(edge)/C(0) <= edge_tol:
+               K = -ln(edge_tol) / (Lz/2)^2 ,  k = 2RT*K
+           Default 1e-3 reproduces values already in use (Lz=14.4 -> 0.6606,
+           close to the historical 0.68; Lz=28.8 -> 0.165).
+ 
+  N(m)     linear in molality, from the Gaussian normalisation (erf included):
+               N = m * 2w * MOLAR_TO_NM3 * mass_water / (Lz * 1e-24) / erf(...)
+           with w = int_0^inf exp(-K z^2) dz = 0.5*sqrt(pi/K).
+ 
+  delta_z  equals w exactly, for the same N and target. HP spreads N ions over
+           half-width w as a Gaussian; FBP spreads the same N over half-width w
+           as a top hat. That is why ONE .pdb serves both methods - same box,
+           same N, only the restraint differs.
+ 
+Notes
+-----
+* With k_FBP_wall = 4184 the decay length is 0.024 nm, <1% of ions outside.
+* HP uses the ideal-solution Gaussian. Measured peaks run ~10-15% below target
+  (CsBr: measured/ideal = 0.86). Target m/0.86, or calibrate from a short run.
+* T = 298.15 K only. salt_reference.py declares REFERENCE_TEMPERATURE and the
+  build refuses a mismatch: phi and density are 25 C measurements.
 """
 
 import argparse
@@ -464,7 +488,7 @@ def packmol(args):
         written.append((f, name))
 
     cryst = CRYST1.format(a=lx_a, b=ly_a, c=lz_a, al=90, be=90, ga=90)
-    (outdir / "../add_cryst1.sh").write_text(
+    (outdir / "add_cryst1.sh").write_text(
         "#!/bin/bash\n# insert the correct CRYST1 record into every packmol output\n"
         f'CRYST="{cryst}"\n'
         f'for f in {args.salt.lower()}_{mi}m_{args.suffix}r*.pdb; do\n'
