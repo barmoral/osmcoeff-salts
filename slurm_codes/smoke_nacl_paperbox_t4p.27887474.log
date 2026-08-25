@@ -1,0 +1,139 @@
+Run 'mamba init' to be able to run mamba activate/deactivate
+and start a new shell session. Or use conda to activate/deactivate.
+
+Run 'mamba init' to be able to run mamba activate/deactivate
+and start a new shell session. Or use conda to activate/deactivate.
+
+=== 1. structure on disk (3-site water; M-sites added at runtime) ===
+  CL        60 atoms
+  NA        60 atoms
+  HOH     9024 atoms
+  TOTAL   9144
+  expect: HOH 9024 (=3008 waters), NA 60, CL 60, TOTAL 9144
+  CRYST1: CRYST1   30.000   30.000  100.000  90.00  90.00  90.00 P 1           1
+  expect:  30.000   30.000  100.000
+
+2026-08-24 20:27:28,777 [INFO] Using restraint type HP (harmonic potential)
+2026-08-24 20:27:28,789 [INFO] [salt_data] structures/salt_data_30x30x100.py: N=60 pairs, k=1.5566588493297209 (k1p56, HP), delta_z=1.5816038571513638 nm, Lz=10.0, z0=5.0, T=298.15
+Concentrations: [3.5]
+k (kJ/mol/nm^2): 1.5566588493297209   tag: k1p56
+Lz (nm): 10.000, z_center (nm): 5.000
+Salt to be analyzed: NaCl
+Molality of maximum concentration = 35 mol/kg {'Molality': 3.5, 'Molarity': 3.2593, 'Number of Particles': 60, 'Osmotic Coefficient': 1.08, 'Density': 1.1217, 'k_HP': 1.5566588493297209, 'delta_z_FBP': 1.5816038571513638, 'k_FBP_wall': 4184.0}
+File already exists. Skipping code.
+Modifying 35m systems:   0%|          | 0/1 [00:00<?, ?it/s]r0
+CENTER ATOMS 120 [9024, 9025, 9026, 9027, 9028, 9029, 9030, 9031, 9032, 9033, 9034, 9035, 9036, 9037, 9038, 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9062, 9063, 9064, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075, 9076, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9085, 9086, 9087, 9088, 9089, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139, 9140, 9141, 9142, 9143]
+                                                            ✅ System dictionary for 35m saved as pickle file
+2026-08-24 20:27:29,858 [INFO] Skipping 35m_k1p56_r0, simulation folders already exist.
+
+📂 Checking: /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/prod_sim_35m_k1p56_r0/prod_sim_35m_k1p56_r0_topology.pdb
+✅ File copied from /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/prod_sim_35m_k1p56_r0/prod_sim_35m_k1p56_r0_topology.pdb to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/result_files/k1p56_35m/md35m_r0.pdb
+🔍 Looking for DCD file: /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/prod_sim_35m_k1p56_r0/prod_sim_35m_k1p56_r0_trajectory.dcd
+🔁 Successfully converted /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/prod_sim_35m_k1p56_r0/prod_sim_35m_k1p56_r0_trajectory.dcd to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/result_files/k1p56_35m/md35m_r0.xtc
+Warning: 'topology' data from input file(s) will be discarded. output format only supports fields: 'xyz', 'time', 'step', 'box'
+
+
+dispatch exit code: 0
+
+################  VERIFICATION  ################
+
+2. built system
+  particles = 12152   (expect 12152 = 3008*4 + 120)
+  PASS  particle count matches a 4-site model
+  virtual sites = 3008   (expect 3008)
+  PASS  one M-site per water
+  charge populations:
+    +0.52422 (H)    6016   expect 6016
+    -1.04844 (M)    3008   expect 3008
+     0.00000 (O)    3008   expect 3008
+    +1.0     (Na)     60   expect 60
+    -1.0     (Cl)     60   expect 60
+  first 4 particles = [0.52422, 0.52422, 0.0, 0.52422]   (H,H,O,H - virtual sites are at the end)
+  PASS  TIP4P-Ew charges, all populations correct
+  total system charge = +0.0000e+00
+  PASS  electroneutral
+
+3. restraint
+  restrained particles = 120   (expect 120)
+  global parameters    = {'k': 1.5567, 'z0': 5.0}
+  PASS  120 ions restrained
+  PASS  k = 1.5567 from salt_data
+  PASS  z0 = 5.0 nm
+  restrained masses: min 22.99  max 35.45   (expect ~22.99 and ~35.45)
+  PASS  restrained particles are ions, not virtual sites
+
+4. trajectory
+  skipped here (MDAnalysis is in osmotic-analysis, not polymerist-env)
+  run:  conda activate osmotic-analysis && python check_traj.py smoke_HP_NaCl_TIP4PEW_paperbox
+
+################  SUMMARY  ################
+all checks passed
+
+throughput: 1.55 ns of MD in this job; pull the exact rate with
+  grep -E 'Starting simulation|Completed' slurm_codes/smoke_nacl_paperbox_t4p.*.log
+225 ns/replicate at that rate sets the production wall time.
+JobID           JobName    CPUTime    Elapsed 
+------------ ---------- ---------- ---------- 
+27869342     sys/dashb+   06:00:17   06:00:17 
+27869342.ba+      batch   06:00:18   06:00:18 
+27869342.ex+     extern   06:00:18   06:00:18 
+27874819     sys/dashb+   06:00:04   06:00:04 
+27874819.ba+      batch   06:00:05   06:00:05 
+27874819.ex+     extern   06:00:05   06:00:05 
+27875081     HP_nacl_d+   00:05:17   00:05:17 
+27875081.ba+      batch   00:05:17   00:05:17 
+27875081.ex+     extern   00:05:17   00:05:17 
+27880213     HP_nacl_d+   09:00:18   09:00:18 
+27880213.ba+      batch   09:00:18   09:00:18 
+27880213.ex+     extern   09:00:18   09:00:18 
+27880851     HP_nacl_3+   00:01:38   00:01:38 
+27880851.ba+      batch   00:01:38   00:01:38 
+27880851.ex+     extern   00:01:38   00:01:38 
+27880922     HP_nacl_3+   00:00:09   00:00:09 
+27880922.ba+      batch   00:00:10   00:00:10 
+27880922.ex+     extern   00:00:10   00:00:10 
+27882038     sys/dashb+   05:36:43   05:36:43 
+27882038.ba+      batch   05:36:43   05:36:43 
+27882038.ex+     extern   05:36:43   05:36:43 
+27883342     HP_nacl_3+   00:18:37   00:18:37 
+27883342.ba+      batch   00:18:40   00:18:40 
+27883342.ex+     extern   00:18:41   00:18:41 
+27883562     FBP_nacl_+   00:01:12   00:01:12 
+27883562.ba+      batch   00:01:12   00:01:12 
+27883562.ex+     extern   00:01:12   00:01:12 
+27883703     FBP_nacl_+   00:05:04   00:05:04 
+27883703.ba+      batch   00:05:04   00:05:04 
+27883703.ex+     extern   00:05:04   00:05:04 
+27883829     HP_nacl_3+   00:00:35   00:00:35 
+27883829.ba+      batch   00:00:35   00:00:35 
+27883829.ex+     extern   00:00:35   00:00:35 
+27883856     HP_nacl_3+   00:05:12   00:05:12 
+27883856.ba+      batch   00:05:13   00:05:13 
+27883856.ex+     extern   00:05:13   00:05:13 
+27884031     HP_nacl_3+   00:10:17   00:10:17 
+27884031.ba+      batch   00:10:17   00:10:17 
+27884031.ex+     extern   00:10:17   00:10:17 
+27885352     HP_nacl_3+   00:11:15   00:11:15 
+27885352.ba+      batch   00:11:15   00:11:15 
+27885352.ex+     extern   00:11:15   00:11:15 
+27885704     HP_nacl_3+   01:39:28   01:39:28 
+27885704.ba+      batch   01:39:28   01:39:28 
+27885704.ex+     extern   01:39:28   01:39:28 
+27885949     FBP_nacl_+   00:12:57   00:12:57 
+27885949.ba+      batch   00:12:57   00:12:57 
+27885949.ex+     extern   00:12:57   00:12:57 
+27886317     HP_nacl_d+   00:22:49   00:22:49 
+27886317.ba+      batch   00:22:49   00:22:49 
+27886317.ex+     extern   00:22:49   00:22:49 
+27886377     FBP_nacl_+   00:05:14   00:05:14 
+27886377.ba+      batch   00:05:14   00:05:14 
+27886377.ex+     extern   00:05:14   00:05:14 
+27886975     HP_nacl_d+   00:26:46   00:26:46 
+27886975.ba+      batch   00:26:46   00:26:46 
+27886975.ex+     extern   00:26:46   00:26:46 
+27887123     smoke_nac+   00:11:24   00:11:24 
+27887123.ba+      batch   00:11:24   00:11:24 
+27887123.ex+     extern   00:11:24   00:11:24 
+27887407     FBP_nacl_+   00:04:53   00:04:53 
+27887407.ba+      batch   00:04:53   00:04:53 
+27887407.ex+     extern   00:04:53   00:04:53 
