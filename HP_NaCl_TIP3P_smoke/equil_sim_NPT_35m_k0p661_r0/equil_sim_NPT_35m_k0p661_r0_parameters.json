@@ -1,0 +1,97 @@
+{
+    "__class__": "SimulationParameters",
+    "__values__": {
+        "integ_params": {
+            "__class__": "IntegratorParameters",
+            "__values__": {
+                "time_step": {
+                    "__class__": "Quantity",
+                    "__values__": {
+                        "value": 2.0,
+                        "unit": "femtosecond"
+                    }
+                },
+                "total_time": {
+                    "__class__": "Quantity",
+                    "__values__": {
+                        "value": 0.5,
+                        "unit": "nanosecond"
+                    }
+                },
+                "num_samples": 100
+            }
+        },
+        "thermo_params": {
+            "__class__": "ThermoParameters",
+            "__values__": {
+                "thermostat_params": {
+                    "__class__": "ThermostatParameters",
+                    "__values__": {
+                        "temperature": {
+                            "__class__": "Quantity",
+                            "__values__": {
+                                "value": 298.15,
+                                "unit": "kelvin"
+                            }
+                        },
+                        "timescale": {
+                            "__class__": "Quantity",
+                            "__values__": {
+                                "value": 1,
+                                "unit": "/picosecond"
+                            }
+                        },
+                        "thermostat": {
+                            "__class__": "Thermostat",
+                            "__values__": "LANGEVIN_MIDDLE"
+                        }
+                    }
+                },
+                "barostat_params": null
+            }
+        },
+        "reporter_params": {
+            "__class__": "ReporterParameters",
+            "__values__": {
+                "report_checkpoint": true,
+                "report_state": true,
+                "report_trajectory": true,
+                "report_state_data": true,
+                "traj_ext": "dcd",
+                "num_steps": 250000,
+                "state_data": {
+                    "step": true,
+                    "time": true,
+                    "potentialEnergy": true,
+                    "kineticEnergy": true,
+                    "totalEnergy": true,
+                    "temperature": true,
+                    "volume": true,
+                    "density": true,
+                    "speed": true,
+                    "progress": false,
+                    "remainingTime": false,
+                    "elapsedTime": false
+                },
+                "reporter_paths": {
+                    "trajectory": {
+                        "__class__": "Path",
+                        "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_smoke/equil_sim_NPT_35m_k0p661_r0/equil_sim_NPT_35m_k0p661_r0_trajectory.dcd"
+                    },
+                    "checkpoint": {
+                        "__class__": "Path",
+                        "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_smoke/equil_sim_NPT_35m_k0p661_r0/equil_sim_NPT_35m_k0p661_r0_checkpoint.chk"
+                    },
+                    "state": {
+                        "__class__": "Path",
+                        "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_smoke/equil_sim_NPT_35m_k0p661_r0/equil_sim_NPT_35m_k0p661_r0_state.xml"
+                    },
+                    "state_data": {
+                        "__class__": "Path",
+                        "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_smoke/equil_sim_NPT_35m_k0p661_r0/equil_sim_NPT_35m_k0p661_r0_state_data.csv"
+                    }
+                }
+            }
+        }
+    }
+}
