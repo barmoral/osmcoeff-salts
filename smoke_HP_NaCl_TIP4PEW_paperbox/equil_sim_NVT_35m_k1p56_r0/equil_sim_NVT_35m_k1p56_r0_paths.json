@@ -1,0 +1,39 @@
+{
+    "__class__": "SimulationPaths",
+    "__values__": {
+        "parameters_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_parameters.json"
+        },
+        "paths_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_paths.json"
+        },
+        "system_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_system.xml"
+        },
+        "topology_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_topology.pdb"
+        },
+        "state_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_state.xml"
+        },
+        "checkpoint_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_checkpoint.chk"
+        },
+        "trajectory_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_trajectory.dcd"
+        },
+        "state_data_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/smoke_HP_NaCl_TIP4PEW_paperbox/equil_sim_NVT_35m_k1p56_r0/equil_sim_NVT_35m_k1p56_r0_state_data.csv"
+        },
+        "time_data_path": null,
+        "spatial_data_path": null
+    }
+}
