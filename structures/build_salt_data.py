@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
 build_salt_data.py
@@ -6,74 +5,79 @@ build_salt_data.py
 Turns salt_reference.py (experimental data, box-independent) into one
 salt_data_<tag>.py per simulation box, holding everything the HP and FBP
 pipelines need. Can also emit the matching packmol inputs.
- 
+
     salt_reference.py  ->  build  ->  salt_data_<tag>.py
                                           |
                                        packmol  ->  *.inp  ->  structures/*.pdb
- 
+
 Usage
 -----
 Build a box file:
- 
+
     python build_salt_data.py build --box 4.8 4.8 14.4 --tag 48x48x144
- 
+
 Build + packmol inputs for one system (6 replicates):
- 
+
     python build_salt_data.py build   --box 4.8 4.8 14.4 --tag 48x48x144
     python build_salt_data.py packmol --salt-data salt_data_48x48x144.py \
         --salt NaCl --molality 3.5 --replicates 6
     cd packmol_inputs && for f in build_*.inp; do packmol < $f; done
-    bash add_cryst1.sh && mv nacl_35m_r*.pdb ../structures/
- 
+    bash add_cryst1_nacl_35m_.sh && mv nacl_35m_r*.pdb ../structures/
+
 Longer box, its own restraint (normal build):
- 
+
     python build_salt_data.py build --box 4.8 4.8 28.8 --tag 48x48x288
- 
+
 Longer box, IDENTICAL restraint and N (controlled box-length experiment only):
- 
+
     python build_salt_data.py build --box 4.8 4.8 28.8 \
         --clone-from salt_data_48x48x144.py --tag 48x48x288_clone
- 
+
 Thicker reservoirs / fewer ions (tighter edge tolerance):
- 
+
     python build_salt_data.py build --box 4.8 4.8 28.8 --edge-tol 1e-6 --tag dbox_tight
- 
+
 Second replicate set with different seeds, own pdb_suffix:
- 
+
     python build_salt_data.py packmol --salt-data salt_data_48x48x288.py \
         --salt NaCl --molality 3.5 --replicates 6 --suffix d --seed0 5000
- 
+
 Design
 ------
 Targets are MOLALITY (mol/kg water), whole-box basis - the same convention as
 convert_profile_to_molal() in the analysis, so design and results are directly
 comparable. Molality also makes the design immune to the barostat squeezing XY:
 m(0) = C(0)/f, and both scale as 1/A, so the area cancels.
- 
+
 Per box, ONE k_HP and ONE delta_z_FBP serve every concentration; only the
 particle count changes:
- 
+
   k_HP     from the box alone. Require C(edge)/C(0) <= edge_tol:
                K = -ln(edge_tol) / (Lz/2)^2 ,  k = 2RT*K
            Default 1e-3 reproduces values already in use (Lz=14.4 -> 0.6606,
            close to the historical 0.68; Lz=28.8 -> 0.165).
- 
+
   N(m)     linear in molality, from the Gaussian normalisation (erf included):
                N = m * 2w * MOLAR_TO_NM3 * mass_water / (Lz * 1e-24) / erf(...)
            with w = int_0^inf exp(-K z^2) dz = 0.5*sqrt(pi/K).
- 
+
   delta_z  equals w exactly, for the same N and target. HP spreads N ions over
            half-width w as a Gaussian; FBP spreads the same N over half-width w
            as a top hat. That is why ONE .pdb serves both methods - same box,
            same N, only the restraint differs.
- 
+
 Notes
 -----
-* With k_FBP_wall = 4184 the decay length is 0.024 nm, <1% of ions outside.
+* FBP plateau is genuinely flat: dPi/dz = -C dU/dz and U is flat inside the
+  walls, so C is constant there for a real solution, not just the ideal limit.
+  With k_FBP_wall = 4184 the decay length is 0.024 nm, <1% of ions outside.
 * HP uses the ideal-solution Gaussian. Measured peaks run ~10-15% below target
   (CsBr: measured/ideal = 0.86). Target m/0.86, or calibrate from a short run.
 * T = 298.15 K only. salt_reference.py declares REFERENCE_TEMPERATURE and the
   build refuses a mismatch: phi and density are 25 C measurements.
+* Every generated file is re-imported and checked before being written
+  ("round-trip OK"). Never round() on the way into a data file - mass_water_kg
+  is ~1e-22 and silently became 0.0 when it was rounded to 8 decimals.
 """
 
 import argparse
@@ -488,7 +492,8 @@ def packmol(args):
         written.append((f, name))
 
     cryst = CRYST1.format(a=lx_a, b=ly_a, c=lz_a, al=90, be=90, ga=90)
-    (outdir / "add_cryst1.sh").write_text(
+    script_name = f"add_cryst1_{args.salt.lower()}_{mi}m_{args.suffix}.sh"
+    (outdir / script_name).write_text(
         "#!/bin/bash\n# insert the correct CRYST1 record into every packmol output\n"
         f'CRYST="{cryst}"\n'
         f'for f in {args.salt.lower()}_{mi}m_{args.suffix}r*.pdb; do\n'
@@ -502,7 +507,8 @@ def packmol(args):
     print(f"  ions packed in z = {ion_lo:.1f} .. {ion_hi:.1f} A  (z0 = {lz_a/2:.1f})")
     print(f"  k_HP = {row.k_HP}   delta_z_FBP = {row.delta_z_FBP}   wall k = {row.k_FBP_wall}")
     print(f"  outputs: {written[0][1]} .. {written[-1][1]}")
-    print(f"\n  cd {outdir} && for f in build_*.inp; do packmol < $f; done && bash add_cryst1.sh")
+    print(f"\n  cd {outdir} && for f in build_{args.salt.lower()}_{mi}m_{args.suffix}r*.inp; "
+          f"do packmol < $f; done && bash {script_name}")
     print(f"  then move the .pdb files into  structures/")
     print(f"\n  expected per file: {{'HOH': {box['n_water']}, "
           f"'{args.salt[:2].upper()}': {n}, ...}}")
