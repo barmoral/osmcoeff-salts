@@ -1,0 +1,39 @@
+{
+    "__class__": "SimulationPaths",
+    "__values__": {
+        "parameters_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_parameters.json"
+        },
+        "paths_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_paths.json"
+        },
+        "system_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_system.xml"
+        },
+        "topology_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_topology.pdb"
+        },
+        "state_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_state.xml"
+        },
+        "checkpoint_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_checkpoint.chk"
+        },
+        "trajectory_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_trajectory.dcd"
+        },
+        "state_data_path": {
+            "__class__": "Path",
+            "__values__": "/gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP3P_dbox_smoke/prod_sim_35m_k0p661_r0/prod_sim_35m_k0p661_r0_state_data.csv"
+        },
+        "time_data_path": null,
+        "spatial_data_path": null
+    }
+}
