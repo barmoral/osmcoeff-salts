@@ -19,8 +19,7 @@ Build a box file:
 Build + packmol inputs for one system (6 replicates):
 
     python build_salt_data.py build   --box 4.8 4.8 14.4 --tag 48x48x144
-    python build_salt_data.py packmol --salt-data salt_data_48x48x144.py \
-        --salt NaCl --molality 3.5 --replicates 6
+    python build_salt_data.py packmol --salt-data salt_data_48x48x144.py --salt NaCl --molality 3.5 --replicates 6 --outdir packmol_inputs_48x48x144
     cd packmol_inputs && for f in build_*.inp; do packmol < $f; done
     bash add_cryst1_nacl_35m_.sh && mv nacl_35m_r*.pdb ../structures/
 
