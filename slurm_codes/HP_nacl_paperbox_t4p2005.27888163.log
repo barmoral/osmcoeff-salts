@@ -1,0 +1,116 @@
+=== resume check ===
+  complete  35m_k1p56_r0: 2000 frames
+  complete  35m_k1p56_r1: 2000 frames
+  2 complete, removed 0 folder(s) for restart
+
+=== inputs ===
+  nacl_35m_pr0.pdb               HOH 9024  NA 60  CL 60
+  nacl_35m_pr1.pdb               HOH 9024  NA 60  CL 60
+  nacl_35m_pr2.pdb               HOH 9024  NA 60  CL 60
+  nacl_35m_pr3.pdb               HOH 9024  NA 60  CL 60
+  nacl_35m_pr4.pdb               HOH 9024  NA 60  CL 60
+  nacl_35m_pr5.pdb               HOH 9024  NA 60  CL 60
+  (expect HOH 9024, NA 60, CL 60 in every file)
+
+2026-08-26 21:07:34,335 [INFO] Using restraint type HP (harmonic potential)
+2026-08-26 21:07:34,336 [INFO] [salt_data] structures/salt_data_30x30x100.py: N=60 pairs, k=1.5566588493297209 (k1p56, HP), delta_z=1.5816038571513638 nm, Lz=10.0, z0=5.0, T=298.15
+Concentrations: [3.5]
+k (kJ/mol/nm^2): 1.5566588493297209   tag: k1p56
+Lz (nm): 10.000, z_center (nm): 5.000
+Salt to be analyzed: NaCl
+Molality of maximum concentration = 35 mol/kg {'Molality': 3.5, 'Molarity': 3.2593, 'Number of Particles': 60, 'Osmotic Coefficient': 1.08, 'Density': 1.1217, 'k_HP': 1.5566588493297209, 'delta_z_FBP': 1.5816038571513638, 'k_FBP_wall': 4184.0}
+File already exists. Skipping code.
+Modifying 35m systems:   0%|          | 0/6 [00:00<?, ?it/s]r0
+CENTER ATOMS 120 [9024, 9025, 9026, 9027, 9028, 9029, 9030, 9031, 9032, 9033, 9034, 9035, 9036, 9037, 9038, 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9062, 9063, 9064, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075, 9076, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9085, 9086, 9087, 9088, 9089, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139, 9140, 9141, 9142, 9143]
+r1
+CENTER ATOMS 120 [9024, 9025, 9026, 9027, 9028, 9029, 9030, 9031, 9032, 9033, 9034, 9035, 9036, 9037, 9038, 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9062, 9063, 9064, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075, 9076, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9085, 9086, 9087, 9088, 9089, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139, 9140, 9141, 9142, 9143]
+r2
+CENTER ATOMS 120 [9024, 9025, 9026, 9027, 9028, 9029, 9030, 9031, 9032, 9033, 9034, 9035, 9036, 9037, 9038, 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9062, 9063, 9064, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075, 9076, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9085, 9086, 9087, 9088, 9089, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139, 9140, 9141, 9142, 9143]
+r3
+CENTER ATOMS 120 [9024, 9025, 9026, 9027, 9028, 9029, 9030, 9031, 9032, 9033, 9034, 9035, 9036, 9037, 9038, 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9062, 9063, 9064, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075, 9076, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9085, 9086, 9087, 9088, 9089, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139, 9140, 9141, 9142, 9143]
+r4
+CENTER ATOMS 120 [9024, 9025, 9026, 9027, 9028, 9029, 9030, 9031, 9032, 9033, 9034, 9035, 9036, 9037, 9038, 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9062, 9063, 9064, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075, 9076, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9085, 9086, 9087, 9088, 9089, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139, 9140, 9141, 9142, 9143]
+r5
+CENTER ATOMS 120 [9024, 9025, 9026, 9027, 9028, 9029, 9030, 9031, 9032, 9033, 9034, 9035, 9036, 9037, 9038, 9039, 9040, 9041, 9042, 9043, 9044, 9045, 9046, 9047, 9048, 9049, 9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9059, 9060, 9061, 9062, 9063, 9064, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075, 9076, 9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084, 9085, 9086, 9087, 9088, 9089, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139, 9140, 9141, 9142, 9143]
+                                                            ✅ System dictionary for 35m saved as pickle file
+2026-08-26 21:07:38,770 [INFO] Skipping 35m_k1p56_r0, simulation folders already exist.
+2026-08-26 21:07:38,770 [INFO] Skipping 35m_k1p56_r1, simulation folders already exist.
+2026-08-26 21:07:38,770 [INFO] ▶ Starting simulation 35m_k1p56_r2
+2026-08-26 21:07:38,770 [INFO] Initializing simulation 1/1 ("equil_sim_NVT_35m_k1p56_r2")
+2026-08-26 21:07:38,772 [INFO] Created LangevinMiddleIntegrator for NVT (Canonical) ensemble
+2026-08-26 21:07:40,549 [INFO] Setting positions in Context
+2026-08-26 21:07:40,550 [WARNING] No valid State/State file provided, initializing State as None
+2026-08-26 21:07:42,088 [INFO] Prepared DCDReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r2/equil_sim_NVT_35m_k1p56_r2_trajectory.dcd
+2026-08-26 21:07:42,089 [INFO] Prepared CheckpointReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r2/equil_sim_NVT_35m_k1p56_r2_checkpoint.chk
+2026-08-26 21:07:42,089 [INFO] Prepared StateReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r2/equil_sim_NVT_35m_k1p56_r2_state.xml
+2026-08-26 21:07:42,091 [INFO] Prepared StateDataReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r2/equil_sim_NVT_35m_k1p56_r2_state_data.csv
+2026-08-26 21:07:42,128 [INFO] Performing energy minimization (initial PE = 131019273936.5412 kJ/mol)
+2026-08-26 21:07:51,394 [INFO] Energy successfully minimized (final PE = -214091.48345538345 kJ/mol)
+2026-08-26 21:07:51,510 [INFO] Saved energy-minimized Simulation Topology at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r2/equil_sim_NVT_35m_k1p56_r2_topology.pdb
+2026-08-26 21:07:51,612 [INFO] Saved serialized Simulation System at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r2/equil_sim_NVT_35m_k1p56_r2_system.xml
+2026-08-26 21:07:51,612 [INFO] Integrating 50.0 ps OpenMM Simulation for 50000 steps
+2026-08-26 21:08:28,111 [INFO] Simulation integration completed successfully
+2026-08-26 21:08:28,112 [INFO] 
+2026-08-26 21:08:29,687 [INFO] [<openmm.openmm.CustomNonbondedForce; proxy of <Swig Object of type 'OpenMM::CustomNonbondedForce *' at 0x147ed67346b0> >, <openmm.openmm.NonbondedForce; proxy of <Swig Object of type 'OpenMM::NonbondedForce *' at 0x147ed0615770> >, <openmm.openmm.CustomBondForce; proxy of <Swig Object of type 'OpenMM::CustomBondForce *' at 0x147ed0602330> >, <openmm.openmm.CustomBondForce; proxy of <Swig Object of type 'OpenMM::CustomBondForce *' at 0x147ed673c170> >, <openmm.openmm.CMMotionRemover; proxy of <Swig Object of type 'OpenMM::CMMotionRemover *' at 0x147ed6746430> >, <openmm.openmm.CustomExternalForce; proxy of <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x147ed67d0970> >, <openmm.openmm.MonteCarloMembraneBarostat; proxy of <Swig Object of type 'OpenMM::MonteCarloMembraneBarostat *' at 0x147ed061d0f0> >]
+2026-08-26 21:08:29,688 [INFO] Initializing simulation 1/2 ("equil_sim_NPT_35m_k1p56_r2")
+2026-08-26 21:08:29,690 [INFO] Created LangevinMiddleIntegrator for NVT (Canonical) ensemble
+2026-08-26 21:08:31,580 [INFO] Setting positions in Context
+2026-08-26 21:08:31,581 [WARNING] No valid State/State file provided, initializing State as None
+2026-08-26 21:08:33,132 [INFO] Prepared DCDReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r2/equil_sim_NPT_35m_k1p56_r2_trajectory.dcd
+2026-08-26 21:08:33,132 [INFO] Prepared CheckpointReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r2/equil_sim_NPT_35m_k1p56_r2_checkpoint.chk
+2026-08-26 21:08:33,132 [INFO] Prepared StateReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r2/equil_sim_NPT_35m_k1p56_r2_state.xml
+2026-08-26 21:08:33,132 [INFO] Prepared StateDataReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r2/equil_sim_NPT_35m_k1p56_r2_state_data.csv
+2026-08-26 21:08:33,164 [INFO] Performing energy minimization (initial PE = -193402.1537434694 kJ/mol)
+2026-08-26 21:08:35,232 [INFO] Energy successfully minimized (final PE = -220046.8138997194 kJ/mol)
+2026-08-26 21:08:35,349 [INFO] Saved energy-minimized Simulation Topology at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r2/equil_sim_NPT_35m_k1p56_r2_topology.pdb
+2026-08-26 21:08:35,447 [INFO] Saved serialized Simulation System at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r2/equil_sim_NPT_35m_k1p56_r2_system.xml
+2026-08-26 21:08:35,447 [INFO] Integrating 25.0 ns OpenMM Simulation for 12500000 steps
+2026-08-26 23:39:35,841 [INFO] Simulation integration completed successfully
+2026-08-26 23:39:35,886 [INFO] 
+2026-08-26 23:39:35,887 [INFO] Initializing simulation 2/2 ("prod_sim_35m_k1p56_r2")
+2026-08-26 23:39:35,890 [INFO] Created LangevinMiddleIntegrator for NVT (Canonical) ensemble
+2026-08-26 23:39:37,659 [INFO] Setting positions in Context
+2026-08-26 23:39:37,660 [WARNING] No valid State/State file provided, initializing State as None
+2026-08-26 23:39:39,278 [INFO] Prepared DCDReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/prod_sim_35m_k1p56_r2/prod_sim_35m_k1p56_r2_trajectory.dcd
+2026-08-26 23:39:39,278 [INFO] Prepared CheckpointReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/prod_sim_35m_k1p56_r2/prod_sim_35m_k1p56_r2_checkpoint.chk
+2026-08-26 23:39:39,278 [INFO] Prepared StateReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/prod_sim_35m_k1p56_r2/prod_sim_35m_k1p56_r2_state.xml
+2026-08-26 23:39:39,278 [INFO] Prepared StateDataReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/prod_sim_35m_k1p56_r2/prod_sim_35m_k1p56_r2_state_data.csv
+2026-08-26 23:39:39,317 [INFO] Performing energy minimization (initial PE = 2.1052155514672964e+16 kJ/mol)
+2026-08-26 23:39:57,243 [INFO] Energy successfully minimized (final PE = -214174.3901936647 kJ/mol)
+2026-08-26 23:39:57,392 [INFO] Saved energy-minimized Simulation Topology at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/prod_sim_35m_k1p56_r2/prod_sim_35m_k1p56_r2_topology.pdb
+2026-08-26 23:39:57,510 [INFO] Saved serialized Simulation System at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/prod_sim_35m_k1p56_r2/prod_sim_35m_k1p56_r2_system.xml
+2026-08-26 23:39:57,510 [INFO] Integrating 200.0 ns OpenMM Simulation for 100000000 steps
+2026-08-27 20:40:28,640 [INFO] Simulation integration completed successfully
+2026-08-27 20:40:28,649 [INFO] 
+2026-08-27 20:40:28,649 [INFO] ✅ Completed 35m_k1p56_r2
+2026-08-27 20:40:28,649 [INFO] ▶ Starting simulation 35m_k1p56_r3
+2026-08-27 20:40:28,650 [INFO] Initializing simulation 1/1 ("equil_sim_NVT_35m_k1p56_r3")
+2026-08-27 20:42:37,483 [INFO] Created LangevinMiddleIntegrator for NVT (Canonical) ensemble
+2026-08-27 20:42:40,028 [INFO] Setting positions in Context
+2026-08-27 20:42:40,030 [WARNING] No valid State/State file provided, initializing State as None
+2026-08-27 20:42:41,702 [INFO] Prepared DCDReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r3/equil_sim_NVT_35m_k1p56_r3_trajectory.dcd
+2026-08-27 20:42:41,703 [INFO] Prepared CheckpointReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r3/equil_sim_NVT_35m_k1p56_r3_checkpoint.chk
+2026-08-27 20:42:41,703 [INFO] Prepared StateReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r3/equil_sim_NVT_35m_k1p56_r3_state.xml
+2026-08-27 20:42:41,703 [INFO] Prepared StateDataReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r3/equil_sim_NVT_35m_k1p56_r3_state_data.csv
+2026-08-27 20:42:41,745 [INFO] Performing energy minimization (initial PE = 4311403565623.067 kJ/mol)
+2026-08-27 20:42:52,533 [INFO] Energy successfully minimized (final PE = -213963.8991558801 kJ/mol)
+2026-08-27 20:42:52,670 [INFO] Saved energy-minimized Simulation Topology at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r3/equil_sim_NVT_35m_k1p56_r3_topology.pdb
+2026-08-27 20:42:52,795 [INFO] Saved serialized Simulation System at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NVT_35m_k1p56_r3/equil_sim_NVT_35m_k1p56_r3_system.xml
+2026-08-27 20:42:52,796 [INFO] Integrating 50.0 ps OpenMM Simulation for 50000 steps
+2026-08-27 20:45:11,937 [INFO] Simulation integration completed successfully
+2026-08-27 20:45:11,937 [INFO] 
+2026-08-27 20:45:13,960 [INFO] [<openmm.openmm.CustomNonbondedForce; proxy of <Swig Object of type 'OpenMM::CustomNonbondedForce *' at 0x147ed076f870> >, <openmm.openmm.NonbondedForce; proxy of <Swig Object of type 'OpenMM::NonbondedForce *' at 0x147ed44b36b0> >, <openmm.openmm.CustomBondForce; proxy of <Swig Object of type 'OpenMM::CustomBondForce *' at 0x147ed061adb0> >, <openmm.openmm.CustomBondForce; proxy of <Swig Object of type 'OpenMM::CustomBondForce *' at 0x147ed058fa30> >, <openmm.openmm.CMMotionRemover; proxy of <Swig Object of type 'OpenMM::CMMotionRemover *' at 0x147ed6735370> >, <openmm.openmm.CustomExternalForce; proxy of <Swig Object of type 'OpenMM::CustomExternalForce *' at 0x147ed4556bb0> >, <openmm.openmm.MonteCarloMembraneBarostat; proxy of <Swig Object of type 'OpenMM::MonteCarloMembraneBarostat *' at 0x147ed0643530> >]
+2026-08-27 20:45:13,961 [INFO] Initializing simulation 1/2 ("equil_sim_NPT_35m_k1p56_r3")
+2026-08-27 20:45:27,797 [INFO] Created LangevinMiddleIntegrator for NVT (Canonical) ensemble
+2026-08-27 20:45:29,558 [INFO] Setting positions in Context
+2026-08-27 20:45:29,559 [WARNING] No valid State/State file provided, initializing State as None
+2026-08-27 20:45:31,257 [INFO] Prepared DCDReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r3/equil_sim_NPT_35m_k1p56_r3_trajectory.dcd
+2026-08-27 20:45:31,265 [INFO] Prepared CheckpointReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r3/equil_sim_NPT_35m_k1p56_r3_checkpoint.chk
+2026-08-27 20:45:31,265 [INFO] Prepared StateReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r3/equil_sim_NPT_35m_k1p56_r3_state.xml
+2026-08-27 20:45:31,265 [INFO] Prepared StateDataReporter which reports to /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r3/equil_sim_NPT_35m_k1p56_r3_state_data.csv
+2026-08-27 20:45:31,310 [INFO] Performing energy minimization (initial PE = -192883.40550353634 kJ/mol)
+2026-08-27 20:45:34,013 [INFO] Energy successfully minimized (final PE = -220211.1561138879 kJ/mol)
+2026-08-27 20:45:34,153 [INFO] Saved energy-minimized Simulation Topology at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r3/equil_sim_NPT_35m_k1p56_r3_topology.pdb
+2026-08-27 20:45:34,273 [INFO] Saved serialized Simulation System at /gpfs/alpine1/scratch/bamo6610/osmcoeff-salts/HP_NaCl_TIP4P2005_paperbox/equil_sim_NPT_35m_k1p56_r3/equil_sim_NPT_35m_k1p56_r3_system.xml
+2026-08-27 20:45:34,273 [INFO] Integrating 25.0 ns OpenMM Simulation for 12500000 steps
+slurmstepd: error: *** JOB 27888163 ON bgpu-shirts1 CANCELLED AT 2026-08-27T21:07:46 DUE TO TIME LIMIT ***
